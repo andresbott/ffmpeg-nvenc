@@ -1,16 +1,10 @@
-# project specific
-sample-data/in/*
-sample-data/out/*
-sample-data/tmp/*
-sample-data/fail/*
-
 # linux related
 .directory
-
 
 # User-specific stuff:
 .idea/
 *.iml
 
-dist
-
+# project related
+build
+out

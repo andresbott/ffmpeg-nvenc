@@ -1,0 +1,34 @@
+---
+name: "ffmpeg-static"
+arch: "amd64"
+platform: "linux"
+version: "#FFMPEG_VERSION#"
+section: "video"
+priority: "optional"
+replaces:
+- foobar
+provides:
+depends:
+recommends:
+suggests:
+- ffmpeg-doc
+conflicts:
+maintainer: "#MAINTAINER# <#MAIL#>"
+description: |
+  Tools for transcoding, streaming and playing of multimedia files
+  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
+  mux, demux, stream, filter and play pretty much anything that humans and
+  machines have created. It supports the most obscure ancient formats up to the
+  cutting edge.
+  .
+  This package contains a statically build binary of ffmpeg that does not
+  conflict with regular ffmpeg installations
+
+vendor: ""
+homepage: "#WEB#"
+license: ""
+contents:
+- src: ./bin/ffmpeg
+  dst: /usr/local/bin/ffmpeg-static
+- src: ./bin/ffprobe
+  dst: /usr/local/bin/ffprobe-static

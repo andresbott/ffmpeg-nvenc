@@ -2,104 +2,76 @@
 set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-# based on:
-# https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
-# https://github.com/lutris/ffmpeg-nvenc
-# https://github.com/ilyaevseev/ffmpeg-build
-# https://askubuntu.com/questions/778100/how-to-install-compile-nvenc-in-ubuntu
-
 echo "============================================================="
 echo "  installing dependencies"
 echo "============================================================="
-source _deps.sh
+source scripts/dependencies.sh
 
 echo "============================================================="
 echo "  nasm"
 echo "============================================================="
 cd "${DIR}"
-source _nasm.sh
+source scripts/nasm.sh
 
 echo "============================================================="
 echo "  yasm"
 echo "============================================================="
 cd "${DIR}"
-source _yasm.sh
+source scripts/yasm.sh
 
 echo "============================================================="
 echo "  x264"
 echo "============================================================="
 cd "${DIR}"
-source _x264.sh
+source scripts/x264.sh
 
 echo "============================================================="
 echo "  x265"
 echo "============================================================="
 cd "${DIR}"
-source _x265.sh
+source scripts/x265.sh
 
 echo "============================================================="
 echo "  libvpx"
 echo "============================================================="
 cd "${DIR}"
-source _libvpx.sh
+source scripts/libvpx.sh
 
 echo "============================================================="
 echo "  libfdk-aac"
 echo "============================================================="
 cd "${DIR}"
-source _libfdk-aac.sh
+source scripts/libfdk-aac.sh
 
 echo "============================================================="
 echo "  MP3 Lame"
 echo "============================================================="
 cd "${DIR}"
-source _lame.sh
+source scripts/lame.sh
 
 echo "============================================================="
 echo "  lib Opus"
 echo "============================================================="
 cd "${DIR}"
-source _opus.sh
+source scripts/opus.sh
 
 echo "============================================================="
 echo "  lib aom"
 echo "============================================================="
 cd "${DIR}"
-source _aom.sh
+source scripts/aom.sh
 
 echo "============================================================="
 echo "  FFmpeg"
 echo "============================================================="
-#source _ffmpeg.sh
+cd "${DIR}"
+source scripts/ffmpeg.sh
 
-
-
-# TODO: libogg, libvorbis libass
-#
-
-#installCUDASDK
-#installNvidiaSDK
-#
-
-
-
-#compileLibAom
-
-
-
-#compileFfmpeg
-
-
-
-
-#    InstallNvCodecIncludes
-
-
-
-
-
-#    BuildFFmpeg
-
+echo "============================================================="
+echo "  Package"
+echo "============================================================="
+cd "${DIR}"
+source scripts/package.sh
 
 
 echo "============================================================="

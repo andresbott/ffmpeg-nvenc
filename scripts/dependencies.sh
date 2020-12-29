@@ -1,10 +1,11 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get -y install sudo wget \
+
+sudo apt-get -y install wget \
   unzip bzip2 autoconf automake libtool patch make cmake git \
   build-essential pkg-config python3 \
-  libnuma-dev apt-get install bash-completion gnutls-bin
+  libnuma-dev bash-completion gnutls-bin
 
 ## install dependencies for libfreetype
 sudo apt-get -y install libfreetype6-dev
