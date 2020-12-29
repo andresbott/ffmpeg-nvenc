@@ -1,0 +1,57 @@
+# This is an example goreleaser.yaml file with some sane defaults.
+# Make sure to check the documentation at http://goreleaser.com
+before:
+  hooks:
+    # You may remove this if you don't use go modules.
+    - go mod download
+    # you may remove this if you don't need go generate
+    - go generate ./...
+
+env_files:
+  # use only one or release will fail!
+  github_token: ~/.goreleaser/gh_token
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    main: ./main.go
+    goos:
+      - linux
+    # Custom ldflags templates.
+    # Default is `-s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.builtBy=goreleaser`.
+    ldflags:
+      - -s -w -X github.com/AndresBott/videoconv/internal/cmd.Version={{.Version}}
+
+nfpms:
+#  see https://goreleaser.com/customization/nfpm/
+  -
+    id: default
+    homepage: https://github.com/AndresBott/videoconv
+    maintainer: AndresBott <contact@andresbott.com>
+    description: Batch video conversion based on directory observation.
+    license: GNU LESSER GENERAL PUBLIC LICENSE v3.0
+    formats:
+      - deb
+      - rpm
+    dependencies:
+      - ffmpeg
+    # Override default /usr/local/bin destination for binaries
+    bindir: /usr/bin
+
+archives:
+  - replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      386: i386
+      amd64: x86_64
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
