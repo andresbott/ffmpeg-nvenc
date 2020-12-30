@@ -2,15 +2,7 @@
 
 scripts used to build a statically linked ffmpeg with nvenc withing a docker container and output as deb package.
 
-This scripts were inspired on:
-
-* https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
-* https://github.com/lutris/ffmpeg-nvenc
-* https://github.com/ilyaevseev/ffmpeg-build
-* https://askubuntu.com/questions/778100/how-to-install-compile-nvenc-in-ubuntu
-* https://docs.nvidia.com/video-technologies/video-codec-sdk/ffmpeg-with-nvidia-gpu/index.html
-
-## How to build
+### build
 
     # edit scripts/vars.sh 
     $ make
@@ -34,3 +26,13 @@ check your current cuda support:
 
     docker run -it -v $(pwd):/build-util debian:buster-slim
 
+
+# about
+
+This scripts were inspired on:
+
+* https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+* https://github.com/lutris/ffmpeg-nvenc
+* https://github.com/ilyaevseev/ffmpeg-build
+* https://askubuntu.com/questions/778100/how-to-install-compile-nvenc-in-ubuntu
+* https://docs.nvidia.com/video-technologies/video-codec-sdk/ffmpeg-with-nvidia-gpu/index.html
