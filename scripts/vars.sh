@@ -16,17 +16,24 @@ OPUS_VERSION="1.3.1"      # https://ftp.osuosl.org/pub/xiph/releases/opus/
 AOM_VERSION="v2.0.1"      # https://aomedia.googlesource.com/aom
 FFMPEG_VERSION="4.3.1"    # http://ffmpeg.org/releases/
 
+## Nvidia
+CUDA_DIR="/usr/local/cuda"
+#NV_CODEC_HEADERS="n11.0.10.0" # https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git;a=tags
+NV_CODEC_HEADERS="n10.0.26.1" # https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git;a=tags
 
 #### PKG vars
-PKG_VERSION="${FFMPEG_VERSION}-1"
+PKG_VERSION="${FFMPEG_VERSION}-3-codec-api-10"
 MAINTAINER="Andres Bott"
 MAIL=""
 WEB="http://andresbott.com"
 
+# Validation
+VALIDATE_CUDA="false"
+
 #### Build vars
 WORK_DIR="/sources"
 DEST_DIR="/ffmpeg-static"
-CUDA_DIR="/usr/local/cuda"
+
 CPUS=`nproc`
 
 mkdir -p "$WORK_DIR" "$DEST_DIR" "$DEST_DIR/bin"

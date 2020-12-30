@@ -15,13 +15,26 @@ function asert_string {
   fi
 
 }
-
 cd "$DEST_DIR/bin"
 
+# check x264 is present
 r=$(./ffmpeg -hide_banner -codecs  | grep x264 || true)
 asert_string "$r" "libx264"
-
+# check x265 is presnet
 r=$(./ffmpeg -hide_banner -codecs  | grep x265 || true )
 asert_string "$r " "libx265"
 
 
+SAMPLE_URL="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+SAMPLE="/tmp/sample.mp4"
+if [ "${VALIDATE_CUDA}" == "true" ]; then
+  if [ ! -f ${SAMPLE} ]; then
+    wget -4 -O ${SAMPLE} "${SAMPLE_URL}"
+  fi
+
+  "$DEST_DIR/bin/ffmpeg" -y -vsync 0 -hwaccel cuda -hwaccel_output_format cuda -i ${SAMPLE} -c:a copy -c:v h264_nvenc -b:v 5M /tmp/output1.mp4
+
+
+else
+  echo "skipping cuda validations"
+fi

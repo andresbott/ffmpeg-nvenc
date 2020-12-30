@@ -9,6 +9,9 @@ replaces:
 - foobar
 provides:
 depends:
+- libnppc11
+- libnppicc11
+- libnppidei11
 recommends:
 suggests:
 - ffmpeg-doc
