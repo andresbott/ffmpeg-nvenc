@@ -26,6 +26,11 @@ check your current cuda support:
 
     docker run -it -v $(pwd):/build-util debian:buster-slim
 
+# needed debian packages
+
+* nvidia-drivers (460)
+* libcuda1 ( and dependencies ) 
+* libnvidia-encode1 ( and dependencies)
 
 # about
 
