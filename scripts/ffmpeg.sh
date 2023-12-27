@@ -58,23 +58,3 @@ if [ $retVal -ne 0 ]; then
 fi
 
 
-
-#
-##    --enable-nvenc \
-## --enable-libxcb is autodetected
-#
-#
-#
-#
-#
-#PATH="$HOME/bin:$PATH" make && \
-#make install && \
-#hash -r
-#
-##        --incdir="$nvidia_inc_dir" \
-##      --extra-cflags="-fPIC -m64 -I $DEST_DIR/include -I $CUDA_DIR/include/" \
-##      --extra-ldflags="-L $DEST_DIR/lib -L $CUDA_DIR/lib64/" \
-##
-#
-#
-#make -j"${CPUS}" && make install

@@ -5,7 +5,7 @@ scripts used to build a statically linked ffmpeg with nvenc withing a docker con
 ### build
 
     # edit scripts/vars.sh 
-    $ make
+    $ make   # caution docker images will use quite some space ~15-20GB
     # package is located in ./out
     $ make clean # clean docker images used in the build
 
