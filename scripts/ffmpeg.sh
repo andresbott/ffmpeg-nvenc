@@ -48,7 +48,10 @@ PKG_CONFIG_PATH="$DEST_DIR/lib/pkgconfig:$DEST_DIR/lib64/pkgconfig" \
     --enable-libnpp \
     --enable-cuda \
     --enable-cuda-nvcc \
-    --enable-nvenc
+    --enable-nvenc \
+    \
+    --enable-vaapi \
+    --enable-libopenjpeg
 
 make -j"${CPUS}" && make install distclean
 

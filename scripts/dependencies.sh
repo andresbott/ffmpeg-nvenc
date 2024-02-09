@@ -20,3 +20,6 @@ sudo apt-get -y install libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev \
 
 ## install dependencies for ffmpeg
 sudo apt-get -y install libunistring-dev libgnutls28-dev libtheora-dev  libvorbis-dev
+
+## install dependencies for libvaapi and libopenjpeg
+sudo apt-get -y install libopenjp2-7-dev libvdpau-dev libva-dev libdrm-dev

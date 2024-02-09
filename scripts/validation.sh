@@ -20,9 +20,16 @@ cd "$DEST_DIR/bin"
 # check x264 is present
 r=$(./ffmpeg -hide_banner -codecs  | grep x264 || true)
 asert_string "$r" "libx264"
-# check x265 is presnet
+# check x265 is present
 r=$(./ffmpeg -hide_banner -codecs  | grep x265 || true )
 asert_string "$r " "libx265"
+
+# check hevc_nvenc is present
+r=$(./ffmpeg -hide_banner -encoders | grep hevc_nvenc || true )
+asert_string "$r " "hevc_nvenc"
+# check hevc_vaapi is present
+r=$(./ffmpeg -hide_banner -encoders | grep hevc_vaapi || true )
+asert_string "$r " "hevc_vaapi"
 
 
 SAMPLE_URL="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
