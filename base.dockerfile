@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM debian:sid-slim
 
 RUN  apt-get update && apt-get -y install sudo bash-completion joe
 
