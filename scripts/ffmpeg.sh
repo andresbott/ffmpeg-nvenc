@@ -9,7 +9,11 @@ if [ ! -f  ffmpeg-${FFMPEG_VERSION}.tar.bz2 ]; then
     wget -4 http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.bz2
 fi
 tar xjf ffmpeg-${FFMPEG_VERSION}.tar.bz2
-cd ffmpeg-${FFMPEG_VERSION}
+if [ ${FFMPEG_VERSION} = "snapshot" ]; then
+    cd ffmpeg
+else
+    cd ffmpeg-${FFMPEG_VERSION}
+fi
 
 export PATH="$CUDA_DIR/bin:$PATH"  # ..path to nvcc
 

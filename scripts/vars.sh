@@ -14,7 +14,8 @@ FDK_AAC_VERSION="v2.0.3"  # https://github.com/mstorsjo/fdk-aac
 LAME_VERSION="3.100"      # https://sourceforge.net/projects/lame/files/lame/
 OPUS_VERSION="1.4"      # https://ftp.osuosl.org/pub/xiph/releases/opus/
 AOM_VERSION="v3.8.0"      # https://aomedia.googlesource.com/aom
-FFMPEG_VERSION="6.1"    # http://ffmpeg.org/releases/
+#FFMPEG_VERSION="6.1"    # http://ffmpeg.org/releases/
+FFMPEG_VERSION="snapshot"    # http://ffmpeg.org/releases/
 
 ## Nvidia
 CUDA_DIR="/usr/local/cuda"
@@ -22,6 +23,9 @@ NV_CODEC_HEADERS="n11.1.5.3" # https://git.videolan.org/?p=ffmpeg/nv-codec-heade
 
 #### PKG vars
 PKG_VERSION="${FFMPEG_VERSION}-1-codec-api-11"
+if [ ${FFMPEG_VERSION} = "snapshot" ]; then
+    PKG_VERSION="6.1.snapshot-1-codec-api-11"
+fi
 MAINTAINER="Andres Bott"
 MAIL=""
 WEB="http://andresbott.com"
