@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 IMG="ffmpeg-static-build-ffmpeg-static"
 id=$(docker create ${IMG})
